@@ -9,7 +9,7 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.android.scopes.ActivityRetainedScoped
 import dagger.hilt.components.SingletonComponent
 import myapp.kshetti.shaadiassignment.db_module.database.UserDataBase
-import myapp.kshetti.shaadiassignment.db_module.entities.UserEntity.Companion.TABLE_NAME
+import myapp.kshetti.trialapp.model.Results.Companion.TABLE_NAME
 import javax.inject.Singleton
 
 @Module
