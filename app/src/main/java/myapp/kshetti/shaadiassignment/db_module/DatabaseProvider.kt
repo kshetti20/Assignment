@@ -6,6 +6,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
+import dagger.hilt.android.scopes.ActivityRetainedScoped
 import dagger.hilt.components.SingletonComponent
 import myapp.kshetti.shaadiassignment.db_module.database.UserDataBase
 import myapp.kshetti.shaadiassignment.db_module.entities.UserEntity.Companion.TABLE_NAME
@@ -24,4 +25,9 @@ class DatabaseProvider() {
                 TABLE_NAME
             ).build()
     }
+
+    @Provides
+    @Singleton
+    fun getUserDao(@ActivityRetainedScoped userDataBase: UserDataBase) = userDataBase.userDao()
+
 }
