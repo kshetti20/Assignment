@@ -6,13 +6,13 @@ import com.google.gson.annotations.SerializedName
    
 data class Picture (
 
-   @ColumnInfo(name = "picture_large")
+   @ColumnInfo(name = "large")
    @SerializedName("large") var large : String,
 
-   @ColumnInfo(name = "picture_medium")
+   @ColumnInfo(name = "medium")
    @SerializedName("medium") var medium : String,
 
-   @ColumnInfo(name = "picture_thumbnail")
+   @ColumnInfo(name = "thumbnail")
    @SerializedName("thumbnail") var thumbnail : String
 
 )

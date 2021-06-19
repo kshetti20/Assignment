@@ -14,22 +14,22 @@ data class Results(
     @ColumnInfo(name = "gender")
     @SerializedName("gender") var gender: String,
 
-    @Embedded
+    @Embedded(prefix = "name_")
     @SerializedName("name") var name: Name,
 
-    @Embedded
+    @Embedded(prefix = "location_")
     @SerializedName("location") var location: Location,
 
     @ColumnInfo(name = "email")
     @SerializedName("email") var email: String,
 
-    @Embedded
+    @Embedded(prefix = "login_")
     @SerializedName("login") var login: Login,
 
-    @Embedded
+    @Embedded(prefix = "dob_")
     @SerializedName("dob") var dob: Dob,
 
-    @Embedded
+    @Embedded(prefix = "registered_")
     @SerializedName("registered") var registered: Registered,
 
     @ColumnInfo(name = "phone")
@@ -38,10 +38,10 @@ data class Results(
     @ColumnInfo(name = "cell")
     @SerializedName("cell") var cell: String,
 
-    @Embedded
+    @Embedded(prefix = "id_")
     @SerializedName("id") var id: Id,
 
-    @Embedded
+    @Embedded(prefix = "picture_")
     @SerializedName("picture") var picture: Picture,
 
     @ColumnInfo(name = "nat")

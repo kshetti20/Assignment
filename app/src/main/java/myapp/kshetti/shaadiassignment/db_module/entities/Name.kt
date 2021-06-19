@@ -6,13 +6,13 @@ import com.google.gson.annotations.SerializedName
    
 data class Name (
 
-   @ColumnInfo(name = "name_title")
+   @ColumnInfo(name = "title")
    @SerializedName("title") var title : String,
 
-   @ColumnInfo(name = "name_first")
+   @ColumnInfo(name = "first")
    @SerializedName("first") var first : String,
 
-   @ColumnInfo(name = "name_last")
+   @ColumnInfo(name = "last")
    @SerializedName("last") var last : String
 
 )

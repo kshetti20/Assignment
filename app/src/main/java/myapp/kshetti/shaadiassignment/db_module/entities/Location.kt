@@ -8,18 +8,18 @@ import com.google.gson.annotations.SerializedName
 data class Location (
 
    @Embedded
-   @SerializedName("location_street") var street : Street,
+   @SerializedName("street") var street : Street,
 
-   @ColumnInfo(name = "location_city")
+   @ColumnInfo(name = "city")
    @SerializedName("city") var city : String,
 
-   @ColumnInfo(name = "location_state")
+   @ColumnInfo(name = "state")
    @SerializedName("state") var state : String,
 
-   @ColumnInfo(name = "location_country")
+   @ColumnInfo(name = "country")
    @SerializedName("country") var country : String,
 
-   @ColumnInfo(name = "location_postcode")
+   @ColumnInfo(name = "postcode")
    @SerializedName("postcode") var postcode : Int,
 
    @Embedded

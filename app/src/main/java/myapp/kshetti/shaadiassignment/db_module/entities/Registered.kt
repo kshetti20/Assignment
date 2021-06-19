@@ -6,10 +6,10 @@ import com.google.gson.annotations.SerializedName
    
 data class Registered (
 
-   @ColumnInfo(name = "registered_date")
+   @ColumnInfo(name = "date")
    @SerializedName("date") var date : String,
 
-   @ColumnInfo(name = "registered_age")
+   @ColumnInfo(name = "age")
    @SerializedName("age") var age : Int
 
 )
