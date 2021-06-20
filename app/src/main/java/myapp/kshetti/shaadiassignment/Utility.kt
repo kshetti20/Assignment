@@ -1,7 +1,6 @@
 package myapp.kshetti.shaadiassignment
 
 import android.content.Context
-import android.content.SharedPreferences
 import android.net.ConnectivityManager
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.android.scopes.ActivityRetainedScoped

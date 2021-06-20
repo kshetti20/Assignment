@@ -1,6 +1,5 @@
 package myapp.kshetti.shaadiassignment.view_models
 
-import android.util.Log
 import androidx.lifecycle.*
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.scopes.ActivityRetainedScoped
@@ -9,7 +8,6 @@ import kotlinx.coroutines.launch
 import myapp.kshetti.shaadiassignment.Utility
 import myapp.kshetti.shaadiassignment.repositories.UserRepository
 import myapp.kshetti.trialapp.model.Results
-import myapp.kshetti.trialapp.model.UserData
 import javax.inject.Inject
 
 @HiltViewModel

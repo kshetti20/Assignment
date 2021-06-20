@@ -1,6 +1,5 @@
 package myapp.kshetti.shaadiassignment.db_module.dao
 
-import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
@@ -19,6 +18,9 @@ interface UserDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertNewUser(results: Results?): Long
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertAll(users: List<Results>?)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAllNewUsers(resultsList: List<Results>?)
