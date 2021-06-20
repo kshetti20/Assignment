@@ -2,12 +2,14 @@ package myapp.kshetti.shaadiassignment.ui_controllers
 
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
+import myapp.kshetti.shaadiassignment.R
+import myapp.kshetti.shaadiassignment.adapters.UserProfileAdapter
 import myapp.kshetti.shaadiassignment.databinding.ActivityMainBinding
 import myapp.kshetti.shaadiassignment.view_models.ProfileViewModel
 
@@ -21,6 +23,22 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = ActivityMainBinding.inflate(getLayoutInflater())
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        binding.apply {
+
+            userProfileRV.layoutManager = LinearLayoutManager(this@MainActivity)
+
+            profileViewModel.userList.observe(this@MainActivity, Observer {
+                userProfileRV.adapter = UserProfileAdapter(it) {
+                    profileViewModel.fetchStoredUsers()
+                }
+                (userProfileRV.adapter as UserProfileAdapter).notifyDataSetChanged()
+            })
+            if (profileViewModel.isNetworkConnected()) {
+                profileViewModel.insertAndFetchUsers()
+            } else {
+                profileViewModel.fetchStoredUsers()
+            }
+        }
     }
 }
