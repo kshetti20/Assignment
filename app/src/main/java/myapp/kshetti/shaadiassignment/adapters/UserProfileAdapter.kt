@@ -3,6 +3,7 @@ package myapp.kshetti.shaadiassignment.adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import myapp.kshetti.shaadiassignment.databinding.UserProfileRowBinding
 import myapp.kshetti.trialapp.model.Results
 
@@ -31,6 +32,11 @@ class UserProfileAdapter(val results: List<Results>, val function: (Results) -> 
 
         fun bindView(profile: Results) {
             binding.apply {
+
+            Glide.with(profileIV.context)
+                .load(profile.picture.thumbnail)
+                .into(profileIV)
+
                 user = profile
 
                 acceptIV.setOnClickListener {

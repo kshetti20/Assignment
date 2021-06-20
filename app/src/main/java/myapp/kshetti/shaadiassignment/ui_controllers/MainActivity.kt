@@ -33,11 +33,10 @@ class MainActivity : AppCompatActivity() {
                     profileViewModel.updateAcceptanceState(it.uID, it.status)
                 }
             })
-            if (profileViewModel.isNetworkConnected()) {
-                profileViewModel.insertAndFetchUsers()
-            } else {
-                profileViewModel.fetchStoredUsers()
-            }
+
+
+            if (profileViewModel.isNetworkConnected()) profileViewModel.insertAndFetchUsers()
+            else profileViewModel.fetchStoredUsers()
         }
     }
 }
