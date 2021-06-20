@@ -7,7 +7,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import dagger.hilt.android.AndroidEntryPoint
 import myapp.kshetti.shaadiassignment.view_models.ProfileViewModel
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -16,12 +15,5 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        profileViewModel.data.observe(this, Observer {
-        //TODO update UI
-        })
-
-        profileViewModel.getUsers()
-
     }
 }

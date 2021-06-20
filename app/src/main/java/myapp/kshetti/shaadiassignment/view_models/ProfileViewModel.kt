@@ -3,8 +3,10 @@ package myapp.kshetti.shaadiassignment.view_models
 import android.util.Log
 import androidx.lifecycle.*
 import dagger.hilt.android.lifecycle.HiltViewModel
+import dagger.hilt.android.scopes.ActivityRetainedScoped
 import dagger.hilt.android.scopes.ViewModelScoped
 import kotlinx.coroutines.launch
+import myapp.kshetti.shaadiassignment.Utility
 import myapp.kshetti.shaadiassignment.repositories.UserRepository
 import myapp.kshetti.trialapp.model.Results
 import myapp.kshetti.trialapp.model.UserData
@@ -17,18 +19,15 @@ class ProfileViewModel @Inject constructor(savedStateHandle: SavedStateHandle) :
     @Inject
     lateinit var userRepository: UserRepository
 
-    var userData = MutableLiveData<UserData>()
+    @ActivityRetainedScoped
+    @Inject
+    lateinit var utility: Utility
+
     var userList = MutableLiveData<List<Results>>()
 
-    fun fetchNewUsers() {
+    fun insertAndFetchUsers() {
         viewModelScope.launch() {
-            userData.value = userRepository.fetchNewUsers()
-        }
-    }
-
-    fun insertNewUsers() {
-        viewModelScope.launch() {
-            userData.value = userRepository.insertNewUsers()
+            userList.value = userRepository.insertAndFetchUsers()
         }
     }
 
@@ -38,5 +37,9 @@ class ProfileViewModel @Inject constructor(savedStateHandle: SavedStateHandle) :
         }
     }
 
+    fun isNetworkConnected() = utility.isNetworkConnected()
 
+    fun saveViewedPosition(uID: Long) = utility.saveViewedPosition(uID)
+
+    fun getViewedPosition() = utility.getViewedPosition()
 }

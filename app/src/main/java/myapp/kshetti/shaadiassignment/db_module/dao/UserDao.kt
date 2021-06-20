@@ -9,7 +9,6 @@ import myapp.kshetti.trialapp.model.Results
 import myapp.kshetti.trialapp.model.Results.Companion.STATUS
 import myapp.kshetti.trialapp.model.Results.Companion.TABLE_NAME
 import myapp.kshetti.trialapp.model.Results.Companion.UNIQUE_ID
-import myapp.kshetti.trialapp.model.UserData
 
 
 @Dao
