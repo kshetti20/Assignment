@@ -6,7 +6,6 @@ import kotlinx.coroutines.withContext
 import myapp.kshetti.shaadiassignment.api_module.RestApi
 import myapp.kshetti.shaadiassignment.db_module.dao.UserDao
 import myapp.kshetti.trialapp.model.Results
-import myapp.kshetti.trialapp.model.UserData
 import javax.inject.Inject
 
 
@@ -19,9 +18,7 @@ class UserRepository @Inject constructor(
             val apiCall = restApi.getProfileList()
             val userData = apiCall.execute().body()
 
-            for (it in userData!!.results) {
-                userDao.insertNewUser(it)
-            }
+            userDao.insertAll(userData?.results)
             userDao.getStoredProfiles()
         }
     }
