@@ -1,7 +1,6 @@
 package myapp.kshetti.shaadiassignment.ui_controllers
 
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -26,8 +25,12 @@ class MainActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         binding.apply {
 
-            userProfileRV.layoutManager = LinearLayoutManager(this@MainActivity)
-
+            userProfileRV.layoutManager = LinearLayoutManager(
+                this@MainActivity,
+                LinearLayoutManager.HORIZONTAL,
+                false
+            )
+            
             profileViewModel.userList.observe(this@MainActivity, Observer {
                 userProfileRV.adapter = UserProfileAdapter(it) {
                     profileViewModel.updateAcceptanceState(it.uID, it.status)
