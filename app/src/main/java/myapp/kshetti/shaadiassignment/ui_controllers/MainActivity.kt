@@ -30,11 +30,15 @@ class MainActivity : AppCompatActivity() {
                 LinearLayoutManager.HORIZONTAL,
                 false
             )
-            
+
             profileViewModel.userList.observe(this@MainActivity, Observer {
                 userProfileRV.adapter = UserProfileAdapter(it) {
                     profileViewModel.updateAcceptanceState(it.uID, it.status)
+
+                    //Latest acceptance modified position is considered as the last viewed profile
+                    profileViewModel.saveViewedPosition(it.uID)
                 }
+                userProfileRV.scrollToPosition(profileViewModel.getViewedPosition().toInt())
             })
 
 

@@ -35,7 +35,7 @@ class UserProfileAdapter(val results: List<Results>, val function: (Results) -> 
             binding.apply {
                 user = profile
                 Glide.with(profileIV.context)
-                    .load(profile.picture.thumbnail)
+                    .load(profile.picture.large)
                     .into(profileIV)
 
                 setAcceptanceView(profile.status)
@@ -63,7 +63,7 @@ class UserProfileAdapter(val results: List<Results>, val function: (Results) -> 
                     1 -> acceptamceStatusTV.text = "Accepted"
                     -1 -> acceptamceStatusTV.text = "Declined"
                 }
-            }else{
+            } else {
                 acceptanceViewLL.visibility = VISIBLE
                 acceptamceStatusTV.visibility = GONE
             }
