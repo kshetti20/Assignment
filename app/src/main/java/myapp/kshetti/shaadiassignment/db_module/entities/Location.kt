@@ -20,7 +20,7 @@ data class Location (
    @SerializedName("country") var country : String,
 
    @ColumnInfo(name = "postcode")
-   @SerializedName("postcode") var postcode : Int,
+   @SerializedName("postcode") var postcode : String,
 
    @Embedded
    @SerializedName("coordinates") var coordinates : Coordinates,
