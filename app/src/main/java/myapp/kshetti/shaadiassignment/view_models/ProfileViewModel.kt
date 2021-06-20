@@ -3,8 +3,10 @@ package myapp.kshetti.shaadiassignment.view_models
 import android.util.Log
 import androidx.lifecycle.*
 import dagger.hilt.android.lifecycle.HiltViewModel
+import dagger.hilt.android.scopes.ActivityRetainedScoped
 import dagger.hilt.android.scopes.ViewModelScoped
 import kotlinx.coroutines.launch
+import myapp.kshetti.shaadiassignment.Utility
 import myapp.kshetti.shaadiassignment.repositories.UserRepository
 import myapp.kshetti.trialapp.model.Results
 import myapp.kshetti.trialapp.model.UserData
@@ -16,6 +18,10 @@ class ProfileViewModel @Inject constructor(savedStateHandle: SavedStateHandle) :
     @ViewModelScoped
     @Inject
     lateinit var userRepository: UserRepository
+
+    @ActivityRetainedScoped
+    @Inject
+    lateinit var utility: Utility
 
     var userData = MutableLiveData<UserData>()
     var userList = MutableLiveData<List<Results>>()
@@ -38,5 +44,5 @@ class ProfileViewModel @Inject constructor(savedStateHandle: SavedStateHandle) :
         }
     }
 
-
+    fun isNetworkConnected() = utility.isNetworkConnected()
 }
