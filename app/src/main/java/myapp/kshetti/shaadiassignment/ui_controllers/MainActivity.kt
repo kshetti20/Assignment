@@ -1,7 +1,7 @@
 package myapp.kshetti.shaadiassignment.ui_controllers
 
 import android.os.Bundle
-import android.view.View
+import android.view.View.GONE
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -24,8 +24,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        binding.apply {
 
+        binding.apply {
             userProfileRV.layoutManager = LinearLayoutManager(
                 this@MainActivity,
                 LinearLayoutManager.HORIZONTAL,
@@ -34,9 +34,10 @@ class MainActivity : AppCompatActivity() {
 
             profileViewModel.userList.observe(this@MainActivity, Observer {
                 if (it.isNullOrEmpty()) {
-                    binding.userProfileRV.visibility = View.GONE
-                    binding.noInternetIV.visibility = View.VISIBLE
+                    binding.userProfileRV.visibility = GONE
+                    binding.backgroundIV.setImageDrawable(resources.getDrawable(R.drawable.no_internet))
                 } else {
+                    binding.backgroundIV.visibility = GONE
                     userProfileRV.adapter = UserProfileAdapter(it) {
                         profileViewModel.updateAcceptanceState(it.uID, it.status)
 

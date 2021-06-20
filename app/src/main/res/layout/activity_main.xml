@@ -11,10 +11,11 @@
             android:layout_height="match_parent" />
 
         <ImageView
-            android:id="@+id/noInternetIV"
+            android:id="@+id/backgroundIV"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/no_internet"
-            android:visibility="gone"/>
+            android:src="@drawable/loader_bg"
+            />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
