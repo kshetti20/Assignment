@@ -1,6 +1,7 @@
 package myapp.kshetti.shaadiassignment.ui_controllers
 
 import android.os.Bundle
+import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -32,13 +33,18 @@ class MainActivity : AppCompatActivity() {
             )
 
             profileViewModel.userList.observe(this@MainActivity, Observer {
-                userProfileRV.adapter = UserProfileAdapter(it) {
-                    profileViewModel.updateAcceptanceState(it.uID, it.status)
+                if (it.isNullOrEmpty()) {
+                    binding.userProfileRV.visibility = View.GONE
+                    binding.noInternetIV.visibility = View.VISIBLE
+                } else {
+                    userProfileRV.adapter = UserProfileAdapter(it) {
+                        profileViewModel.updateAcceptanceState(it.uID, it.status)
 
-                    //Latest acceptance modified position is considered as the last viewed profile
-                    profileViewModel.saveViewedPosition(it.uID)
+                        //Latest acceptance modified position is considered as the last viewed profile
+                        profileViewModel.saveViewedPosition(it.uID)
+                    }
+                    userProfileRV.scrollToPosition(profileViewModel.getViewedPosition().toInt())
                 }
-                userProfileRV.scrollToPosition(profileViewModel.getViewedPosition().toInt())
             })
 
 
