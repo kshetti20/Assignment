@@ -30,9 +30,8 @@ class MainActivity : AppCompatActivity() {
 
             profileViewModel.userList.observe(this@MainActivity, Observer {
                 userProfileRV.adapter = UserProfileAdapter(it) {
-                    profileViewModel.fetchStoredUsers()
+                    profileViewModel.updateAcceptanceState(it.uID, it.status)
                 }
-                (userProfileRV.adapter as UserProfileAdapter).notifyDataSetChanged()
             })
             if (profileViewModel.isNetworkConnected()) {
                 profileViewModel.insertAndFetchUsers()

@@ -31,9 +31,15 @@ class ProfileViewModel @Inject constructor(savedStateHandle: SavedStateHandle) :
         }
     }
 
-    fun fetchStoredUsers(){
+    fun fetchStoredUsers() {
         viewModelScope.launch() {
             userList.value = userRepository.fetchStoredUsers()
+        }
+    }
+
+    fun updateAcceptanceState(niqueID: Long, status: Int) {
+        viewModelScope.launch() {
+            userRepository.updateAcceptanceState(niqueID, status)
         }
     }
 
