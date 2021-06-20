@@ -65,10 +65,13 @@ dependencies {
 
     //Livedata
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
-    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$livedata_ktx_version"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$ktx_version"
 
     //Coroutines
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutine_version"
+
+    //Vuewmodel Kotlin extension
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$ktx_version"
 
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'

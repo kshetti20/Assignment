@@ -20,10 +20,8 @@ class ProfileViewModel @Inject constructor(savedStateHandle: SavedStateHandle) :
     var data = MutableLiveData<UserData>()
 
     fun getUsers() {
-        viewModelScope.launch {
-            withContext(Dispatchers.IO) {
-                data.postValue(userRepository.getUsers())
-            }
+        viewModelScope.launch() {
+            data.value = userRepository.getUsers()
         }
     }
 }

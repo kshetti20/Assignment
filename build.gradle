@@ -10,7 +10,7 @@ buildscript {
         constraint_lay_version = "2.0.4"
         room_version = '2.3.0'
         lifecycle_version = "2.2.0"
-        livedata_ktx_version = "2.3.1"
+        ktx_version = "2.3.1"
         coroutine_version = "1.4.2"
     }
 
