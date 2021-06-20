@@ -14,7 +14,7 @@ import myapp.kshetti.trialapp.model.Results.Companion.UNIQUE_ID
 @Dao
 interface UserDao {
 
-    @Query("SELECT * FROM $TABLE_NAME ORDER BY $UNIQUE_ID DESC")
+    @Query("SELECT * FROM $TABLE_NAME ORDER BY $UNIQUE_ID ASC")
     suspend fun getStoredProfiles(): List<Results>?
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

@@ -32,8 +32,9 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
     buildFeatures {
-        viewBinding true
+        dataBinding true
     }
 }
 
@@ -72,6 +73,10 @@ dependencies {
 
     //Vuewmodel Kotlin extension
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$ktx_version"
+
+    // Glide
+    implementation "com.github.bumptech.glide:glide:$glide_version"
+    kapt "com.github.bumptech.glide:compiler:$glide_version"
 
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'

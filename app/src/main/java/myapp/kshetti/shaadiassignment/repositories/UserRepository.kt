@@ -22,7 +22,7 @@ class UserRepository @Inject constructor(
             for (it in userData!!.results) {
                 userDao.insertNewUser(it)
             }
-            userData.results
+            userDao.getStoredProfiles()
         }
     }
 
