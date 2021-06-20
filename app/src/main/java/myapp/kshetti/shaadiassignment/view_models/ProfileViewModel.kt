@@ -1,12 +1,12 @@
 package myapp.kshetti.shaadiassignment.view_models
 
+import android.util.Log
 import androidx.lifecycle.*
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.scopes.ViewModelScoped
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import myapp.kshetti.shaadiassignment.repositories.UserRepository
+import myapp.kshetti.trialapp.model.Results
 import myapp.kshetti.trialapp.model.UserData
 import javax.inject.Inject
 
@@ -17,11 +17,26 @@ class ProfileViewModel @Inject constructor(savedStateHandle: SavedStateHandle) :
     @Inject
     lateinit var userRepository: UserRepository
 
-    var data = MutableLiveData<UserData>()
+    var userData = MutableLiveData<UserData>()
+    var userList = MutableLiveData<List<Results>>()
 
-    fun getUsers() {
+    fun fetchNewUsers() {
         viewModelScope.launch() {
-            data.value = userRepository.getUsers()
+            userData.value = userRepository.fetchNewUsers()
         }
     }
+
+    fun insertNewUsers() {
+        viewModelScope.launch() {
+            userData.value = userRepository.insertNewUsers()
+        }
+    }
+
+    fun fetchStoredUsers(){
+        viewModelScope.launch() {
+            userList.value = userRepository.fetchStoredUsers()
+        }
+    }
+
+
 }
