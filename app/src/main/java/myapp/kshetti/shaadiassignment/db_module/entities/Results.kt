@@ -9,7 +9,7 @@ import myapp.kshetti.trialapp.model.Results.Companion.TABLE_NAME
 
 @Entity(tableName = TABLE_NAME)
 data class Results(
-    @PrimaryKey(autoGenerate = true) @ColumnInfo(name = PROFILE_ID) var uID: Long = 0,
+    @PrimaryKey(autoGenerate = true) @ColumnInfo(name = UNIQUE_ID) var uID: Long = 0,
 
     @ColumnInfo(name = "gender")
     @SerializedName("gender") var gender: String,
@@ -45,12 +45,19 @@ data class Results(
     @SerializedName("picture") var picture: Picture,
 
     @ColumnInfo(name = "nat")
-    @SerializedName("nat") var nat: String
+    @SerializedName("nat") var nat: String,
+
+    @ColumnInfo(name = STATUS)
+    var status: Int = PENDING
 ){
 
     companion object {
         const val TABLE_NAME = "user"
-        const val PROFILE_ID = "id"
+        const val UNIQUE_ID = "uID"
         const val PROFILE_NAME = "name"
+        const val ACCEPTED = 1
+        const val DECLINECD = -1
+        const val PENDING = 0
+        const val STATUS = "status"
     }
 }
