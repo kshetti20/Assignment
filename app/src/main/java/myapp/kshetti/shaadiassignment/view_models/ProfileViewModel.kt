@@ -23,18 +23,11 @@ class ProfileViewModel @Inject constructor(savedStateHandle: SavedStateHandle) :
     @Inject
     lateinit var utility: Utility
 
-    var userData = MutableLiveData<UserData>()
     var userList = MutableLiveData<List<Results>>()
 
-    fun fetchNewUsers() {
+    fun insertAndFetchUsers() {
         viewModelScope.launch() {
-            userData.value = userRepository.fetchNewUsers()
-        }
-    }
-
-    fun insertNewUsers() {
-        viewModelScope.launch() {
-            userData.value = userRepository.insertNewUsers()
+            userList.value = userRepository.insertAndFetchUsers()
         }
     }
 
@@ -45,4 +38,8 @@ class ProfileViewModel @Inject constructor(savedStateHandle: SavedStateHandle) :
     }
 
     fun isNetworkConnected() = utility.isNetworkConnected()
+
+    fun saveViewedPosition(uID: Long) = utility.saveViewedPosition(uID)
+
+    fun getViewedPosition() = utility.getViewedPosition()
 }
