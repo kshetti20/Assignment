@@ -14,33 +14,26 @@ class UserRepository @Inject constructor(
     @ActivityRetainedScoped val userDao: UserDao,
     @ActivityRetainedScoped val restApi: RestApi
 ) {
-    suspend fun fetchNewUsers(): UserData? {
-        return withContext(Dispatchers.IO) {
-            val apiCall = restApi.getProfileList()
-            apiCall.execute().body()
-        }
-    }
-
-    suspend fun insertNewUsers(): UserData?  {
+    suspend fun insertAndFetchUsers(): List<Results>? {
         return withContext(Dispatchers.IO) {
             val apiCall = restApi.getProfileList()
             val userData = apiCall.execute().body()
 
-            for (it in userData!!.results){
+            for (it in userData!!.results) {
                 userDao.insertNewUser(it)
             }
-            userData
+            userData.results
         }
     }
 
-    suspend fun fetchStoredUsers(): List<Results>?{
+    suspend fun fetchStoredUsers(): List<Results>? {
         return withContext(Dispatchers.IO) {
             userDao.getStoredProfiles()
         }
     }
 
-    suspend fun updateAcceptanceState(uniqueID: Long, status: Int){
-        withContext(Dispatchers.IO){
+    suspend fun updateAcceptanceState(uniqueID: Long, status: Int) {
+        withContext(Dispatchers.IO) {
             userDao.updateAcceptanceState(uniqueID, status)
         }
     }
