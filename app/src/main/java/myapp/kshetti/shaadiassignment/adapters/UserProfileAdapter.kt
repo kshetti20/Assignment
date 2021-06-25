@@ -57,7 +57,8 @@ class UserProfileAdapter(val results: List<Results>, val function: (Results) -> 
         private fun UserProfileRowBinding.setAcceptanceView(status: Int) {
 
             if (status != 0) {
-                acceptanceViewLL.visibility = GONE
+                acceptIV.visibility = GONE
+                declineIV.visibility = GONE
                 acceptamceStatusTV.visibility = VISIBLE
 
                 when (status) {
@@ -65,7 +66,8 @@ class UserProfileAdapter(val results: List<Results>, val function: (Results) -> 
                     -1 -> acceptamceStatusTV.text = "Declined"
                 }
             } else {
-                acceptanceViewLL.visibility = VISIBLE
+                acceptIV.visibility = VISIBLE
+                declineIV.visibility = VISIBLE
                 acceptamceStatusTV.visibility = GONE
             }
         }
