@@ -26,6 +26,8 @@ class MainActivity : AppCompatActivity() {
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
+        binding.selectionTab.setTitle(arrayListOf("Today's MAtches","Shortlisted","Declined"))
+
         binding.apply {
             userProfileRV.layoutManager = LinearLayoutManager(
                 this@MainActivity,
