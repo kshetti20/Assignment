@@ -36,7 +36,6 @@ class UserProfileAdapter(val results: List<Results>, val function: (Results) -> 
                 user = profile
                 Glide.with(profileIV.context)
                     .load(profile.picture.large)
-                    .centerCrop()
                     .into(profileIV)
 
                 setAcceptanceView(profile.status)
