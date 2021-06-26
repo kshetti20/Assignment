@@ -22,22 +22,12 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/acceptIV"
-                android:layout_width="0dp"
-                android:layout_height="80dp"
-                android:src="@drawable/accept"
-                android:visibility="gone"
-                app:layout_constraintEnd_toStartOf="@+id/declineIV"
-                app:layout_constraintTop_toBottomOf="@+id/profileCard"
-                app:layout_constraintWidth_percent="0.5" />
-
-            <ImageView
                 android:id="@+id/declineIV"
                 android:layout_width="0dp"
                 android:layout_height="80dp"
                 android:visibility="gone"
                 android:src="@drawable/decline"
-                app:layout_constraintStart_toEndOf="@+id/acceptIV"
+                app:layout_constraintStart_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/profileCard"
                 app:layout_constraintWidth_percent="0.5" />
 
@@ -132,6 +122,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         app:backgroundTint="#E3F2FD"
+                        android:visibility="invisible"
                         card_view:layout_constraintEnd_toEndOf="parent"
                         card_view:layout_constraintBottom_toBottomOf="parent"
                         android:layout_margin="@dimen/margin_small"/>
@@ -140,6 +131,7 @@
                         android:id="@+id/declineFab"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:visibility="invisible"
                         app:backgroundTint="#FF8A80"
                         card_view:layout_constraintEnd_toStartOf="@id/acceptFab"
                         card_view:layout_constraintBottom_toBottomOf="parent"
@@ -178,7 +170,8 @@
                         android:id="@+id/aboutTV"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="@dimen/margin_medium"
+                        android:layout_marginHorizontal="@dimen/margin_medium"
+                        android:layout_marginBottom="@dimen/margin_small"
                         android:textSize="@dimen/small_text_size"/>
 
 
@@ -194,17 +187,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center|bottom"
-            android:layout_marginEnd="16dp"
             android:layout_marginBottom="@dimen/margin_medium"
-            android:backgroundTint="@color/purple_200"
-            android:text="ACTIONS"
+            android:backgroundTint="@color/teal_200"
+            android:text="@string/connect_now_text"
             android:textColor="@android:color/white"
             app:icon="@drawable/approved"
-            app:iconTint="@android:color/white" />
+            app:iconTint="@android:color/white"
+            android:textSize="@dimen/small_text_size"/>
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
     <data>
-
         <variable
             name="user"
             type="myapp.kshetti.trialapp.model.Results" />

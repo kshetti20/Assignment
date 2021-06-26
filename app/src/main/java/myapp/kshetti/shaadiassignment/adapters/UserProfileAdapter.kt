@@ -51,11 +51,12 @@ class UserProfileAdapter(val results: List<Results>, val function: (Results) -> 
 
                 setAcceptanceView(profile.status)
 
-                acceptIV.setOnClickListener {
+                extFloatingActionButton.setOnClickListener {
                     profile.status = 1
                     function.invoke(profile)
                     setAcceptanceView(profile.status)
                 }
+
                 declineIV.setOnClickListener {
                     profile.status = -1
                     function.invoke(profile)
@@ -92,7 +93,6 @@ class UserProfileAdapter(val results: List<Results>, val function: (Results) -> 
         private fun UserProfileRowBinding.setAcceptanceView(status: Int) {
 
             if (status != 0) {
-                acceptIV.visibility = GONE
                 declineIV.visibility = GONE
                 acceptamceStatusTV.visibility = VISIBLE
 
@@ -101,7 +101,6 @@ class UserProfileAdapter(val results: List<Results>, val function: (Results) -> 
                     -1 -> acceptamceStatusTV.text = "Declined"
                 }
             } else {
-                acceptIV.visibility = VISIBLE
                 declineIV.visibility = VISIBLE
                 acceptamceStatusTV.visibility = GONE
             }
