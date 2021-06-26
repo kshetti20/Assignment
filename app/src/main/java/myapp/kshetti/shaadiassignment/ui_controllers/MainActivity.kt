@@ -8,6 +8,7 @@ import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearSnapHelper
 import dagger.hilt.android.AndroidEntryPoint
 import myapp.kshetti.shaadiassignment.R
 import myapp.kshetti.shaadiassignment.adapters.UserProfileAdapter
@@ -29,6 +30,7 @@ class MainActivity : AppCompatActivity() {
         binding.selectionTab.setTitle(arrayListOf("Today's MAtches","Shortlisted","Declined"))
 
         binding.apply {
+            LinearSnapHelper().attachToRecyclerView(userProfileRV)
             userProfileRV.layoutManager = LinearLayoutManager(
                 this@MainActivity,
                 LinearLayoutManager.HORIZONTAL,
