@@ -33,10 +33,12 @@ class UserProfileAdapter(val results: List<Results>, val function: (Results) -> 
 
         fun bindView(profile: Results) {
             binding.apply {
+
+                aboutTV.text = "'m 26 years outdated, 5’8″ tall, with a medium assemble and a constructive outlook within the course of life. I'm a Commerce Graduate from D.U. and at current figuring out totally different selections of pursuing my analysis further or discovering a job. According to my mom and father & mates, I'm a daring, self-made, down-to-earth specific particular person and I'm very energetic regarding taking up household duties. I like to decorate my residence with an entire stickler for hygiene. I'm searching for a Life Partner for me at  Milan Mantra using their beautiful biodata designs.";
+
                 user = profile
                 Glide.with(profileIV.context)
                     .load(profile.picture.large)
-                    .centerCrop()
                     .into(profileIV)
 
                 setAcceptanceView(profile.status)
