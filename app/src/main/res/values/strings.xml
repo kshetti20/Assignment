@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">ShaadiAssignment</string>
-    <string name="connect_now_text">Connect Now</string>
+    <string name="connect_now">Connect Now</string>
 </resources>
