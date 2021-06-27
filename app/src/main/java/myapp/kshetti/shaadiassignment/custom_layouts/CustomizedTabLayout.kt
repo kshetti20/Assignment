@@ -3,13 +3,19 @@ package myapp.kshetti.shaadiassignment.custom_layouts
 import android.content.Context
 import android.graphics.Color
 import android.util.AttributeSet
+import android.util.Log
 import android.widget.TextView
 import com.google.android.material.tabs.TabLayout
 import dagger.hilt.android.qualifiers.ActivityContext
 import myapp.kshetti.shaadiassignment.R
+import myapp.kshetti.trialapp.model.Results
 
 
 class CustomizedTabLayout : TabLayout {
+
+    lateinit var positionCallback: (Int, Int) -> Unit
+
+    var previousPosition = 0
 
     constructor(@ActivityContext activityContext: Context) : super(activityContext) {
         initTabSelectedListener()
@@ -31,6 +37,10 @@ class CustomizedTabLayout : TabLayout {
         initTabSelectedListener()
     }
 
+    fun setCallback(function: (Int, Int) -> Unit){
+        positionCallback = function
+    }
+
     fun initTabSelectedListener() {
 
         addOnTabSelectedListener(object : OnTabSelectedListener {
@@ -40,6 +50,8 @@ class CustomizedTabLayout : TabLayout {
                         val tab_layout_text: TextView = customView!!.findViewById(R.id.tab_layout_text)
                         tab_layout_text.setTextColor(Color.WHITE)
                         tab_layout_text.setBackgroundResource(R.drawable.tablayout_item_pressed)
+                        positionCallback.invoke(position, previousPosition)
+
                     }
                 }
             }
@@ -50,12 +62,15 @@ class CustomizedTabLayout : TabLayout {
                         val tab_layout_text: TextView = customView!!.findViewById(R.id.tab_layout_text)
                         tab_layout_text.setTextColor(Color.BLACK)
                         tab_layout_text.setBackgroundResource(R.drawable.tablayout_item_elevated)
+
+                        previousPosition = position;
                     }
                 }
             }
 
             //Implementation not required
             override fun onTabReselected(tab: Tab?) {}
+
 
 
         })
@@ -78,3 +93,4 @@ class CustomizedTabLayout : TabLayout {
 
 
 }
+
