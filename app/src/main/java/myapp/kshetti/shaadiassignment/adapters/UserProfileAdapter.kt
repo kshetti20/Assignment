@@ -52,13 +52,7 @@ class UserProfileAdapter(val results: List<Results>, val function: (Results) -> 
                 setAcceptanceView(profile.status)
 
                 extFloatingActionButton.setOnClickListener {
-                    profile.status = 1
-                    function.invoke(profile)
-                    setAcceptanceView(profile.status)
-                }
-
-                declineIV.setOnClickListener {
-                    profile.status = -1
+                    profile.status = profile.status.xor(1)
                     function.invoke(profile)
                     setAcceptanceView(profile.status)
                 }
@@ -91,20 +85,23 @@ class UserProfileAdapter(val results: List<Results>, val function: (Results) -> 
         }
 
         private fun UserProfileRowBinding.setAcceptanceView(status: Int) {
-
-            if (status != 0) {
-                declineIV.visibility = GONE
-                acceptamceStatusTV.visibility = VISIBLE
-
-                when (status) {
-                    1 -> acceptamceStatusTV.text = "Accepted"
-                    -1 -> acceptamceStatusTV.text = "Declined"
-                }
-            } else {
-                declineIV.visibility = VISIBLE
-                acceptamceStatusTV.visibility = GONE
+            if (status == 0) {
+                extFloatingActionButton.setText(CONNECT_NOW)
+                extFloatingActionButton.setIconResource(R.drawable.approved)
+            }
+            else {
+                extFloatingActionButton.setText(CONNECTED)
+                extFloatingActionButton.setIconResource(R.drawable.ic_accept_tick)
             }
         }
+
     }
+
+
+    companion object {
+        const val CONNECTED = "Connected"
+        const val CONNECT_NOW = "Connect Now"
+    }
+
 
 }

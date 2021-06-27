@@ -24,36 +24,6 @@
             android:layout_height="wrap_content"
             >
 
-            <ImageView
-                android:id="@+id/declineIV"
-                android:layout_width="0dp"
-                android:layout_height="80dp"
-                android:visibility="gone"
-                android:src="@drawable/decline"
-                app:layout_constraintStart_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/profileCard"
-                app:layout_constraintWidth_percent="0.5" />
-
-            <TextView
-                android:id="@+id/emailV"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:visibility="gone"
-                android:text="@{user.email}"
-                android:textSize="15sp"
-                app:layout_constraintTop_toBottomOf="@+id/declineIV" />
-
-
-            <TextView
-                android:id="@+id/acceptamceStatusTV"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:textSize="50sp"
-                app:layout_constraintTop_toBottomOf="@id/emailV" />
-
-
             <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/profileCard"
                 android:layout_width="match_parent"
@@ -197,7 +167,6 @@
             android:layout_gravity="center|bottom"
             android:layout_marginBottom="@dimen/margin_medium"
             android:backgroundTint="@color/teal_200"
-            android:text="@string/connect_now_text"
             android:textColor="@android:color/white"
             app:icon="@drawable/approved"
             app:iconTint="@android:color/white"
