@@ -6,7 +6,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/ui_background">
 
         <myapp.kshetti.shaadiassignment.custom_layouts.CustomizedTabLayout
             android:id="@+id/selectionTab"
@@ -19,7 +20,8 @@
             app:tabContentStart="10dp"
             app:tabMode="scrollable"
             app:tabPaddingEnd="5dp"
-            app:tabPaddingStart="5dp" />
+            app:tabPaddingStart="5dp"
+            android:background="@color/ui_background"/>
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/fragment_container"
