@@ -2,14 +2,12 @@ package myapp.kshetti.shaadiassignment.ui_controllers.fragments
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSnapHelper
 import dagger.hilt.android.AndroidEntryPoint
@@ -29,7 +27,7 @@ class HorizontalListFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentHorizontalListBinding.inflate(
             inflater, container, false
         )
@@ -47,7 +45,7 @@ class HorizontalListFragment : Fragment() {
                 false
             )
 
-            profileViewModel.userList.observe(viewLifecycleOwner, Observer {
+            profileViewModel.userList.observe(viewLifecycleOwner, { it ->
                 if (it.isNullOrEmpty()) {
                     binding.userProfileRV.visibility = View.GONE
                     binding.backgroundIV.setImageDrawable(
@@ -72,10 +70,5 @@ class HorizontalListFragment : Fragment() {
             if (profileViewModel.isNetworkConnected()) profileViewModel.insertAndFetchUsers()
             else profileViewModel.fetchStoredUsers()
         }
-    }
-
-    override fun onResume() {
-        super.onResume()
-        Log.e("","")
     }
 }

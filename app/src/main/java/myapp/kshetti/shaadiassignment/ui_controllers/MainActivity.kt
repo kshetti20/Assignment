@@ -1,7 +1,6 @@
 package myapp.kshetti.shaadiassignment.ui_controllers
 
 import android.os.Bundle
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -10,14 +9,11 @@ import myapp.kshetti.shaadiassignment.R
 import myapp.kshetti.shaadiassignment.databinding.ActivityMainBinding
 import myapp.kshetti.shaadiassignment.ui_controllers.fragments.HorizontalListFragment
 import myapp.kshetti.shaadiassignment.ui_controllers.fragments.VerticalListFragment
-import myapp.kshetti.shaadiassignment.view_models.ProfileViewModel
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-
-    private val profileViewModel: ProfileViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,7 +24,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.apply {
 
-            selectionTab.setCallback() { current, previous ->
+            selectionTab.setCallback { current, previous ->
                 loadFragment(current, previous)
             }
             selectionTab.setTitle(titleList)
