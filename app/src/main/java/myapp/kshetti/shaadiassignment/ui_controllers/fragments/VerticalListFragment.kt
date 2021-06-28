@@ -8,13 +8,9 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.LinearSnapHelper
 import myapp.kshetti.shaadiassignment.R
 import myapp.kshetti.shaadiassignment.adapters.UserCardAdapter
-import myapp.kshetti.shaadiassignment.adapters.UserProfileAdapter
-import myapp.kshetti.shaadiassignment.databinding.FragmentHorizontalListBinding
 import myapp.kshetti.shaadiassignment.databinding.FragmentVerticalListBinding
 import myapp.kshetti.shaadiassignment.view_models.ProfileViewModel
 
@@ -28,7 +24,7 @@ class VerticalListFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentVerticalListBinding.inflate(
             inflater, container, false
         )
@@ -45,7 +41,7 @@ class VerticalListFragment : Fragment() {
                 false
             )
 
-            profileViewModel.userList.observe(viewLifecycleOwner, Observer {
+            profileViewModel.userList.observe(viewLifecycleOwner, {
                 if (it.isNullOrEmpty()) {
                     binding.userProfileRV.visibility = View.GONE
                     binding.backgroundIV.setImageDrawable(

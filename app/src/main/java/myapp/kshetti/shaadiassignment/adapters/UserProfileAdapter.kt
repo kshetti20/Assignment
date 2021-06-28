@@ -42,7 +42,7 @@ class UserProfileAdapter(val results: List<Results>, val function: (Results) -> 
                 setScrollingAnimation();
 
                 aboutTV.text =
-                    "'m 26 years outdated, 5’8″ tall, with a medium assemble and a constructive outlook within the course of life. I'm a Commerce Graduate from D.U. and at current figuring out totally different selections of pursuing my analysis further or discovering a job. According to my mom and father & mates, I'm a daring, self-made, down-to-earth specific particular person and I'm very energetic regarding taking up household duties. I like to decorate my residence with an entire stickler for hygiene. I'm searching for a Life Partner for me at  Milan Mantra using their beautiful biodata designs.";
+                    "I am 22 years old, 5’6″ tall, with a medium build and a cheerful outlook towards life. I am a commerce graduate from Delhi University and I am currently figuring out the options I have in terms of pursuing my studies further or finding a job. I love painting and you will find some of my paintings adorning the walls of a few offices in Delhi! I use my paintings to shine a spotlight on the beauty of nature all around us. My parents tell me I am quite handy when it comes to taking up household chores. Actually, I enjoy decorating my home but I am also a stickler for cleanliness. I love spending time with my family and have a big circle of friends as well.";
 
                 user = profile
                 Glide.with(profileIV.context)
