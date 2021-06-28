@@ -46,7 +46,7 @@
                             android:layout_marginBottom="@dimen/minute_margin"
                             android:layout_marginStart="@dimen/margin_medium"
                             android:text="@{user.dob.age+' '+ ` Yrs ` + user.gender}"
-                            android:textColor="@color/white"
+                            android:textColor="@color/teal_200"
                             android:textSize="@dimen/small_text_size"
                             card_view:layout_constraintBottom_toTopOf="@+id/phoneTV"
                             card_view:layout_constraintStart_toStartOf="parent" />
@@ -57,7 +57,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="@dimen/margin_medium"
                             android:text="@{user.phone}"
-                            android:textColor="@color/white"
+                            android:textColor="@color/teal_200"
                             android:textSize="@dimen/small_text_size"
                             card_view:layout_constraintBottom_toTopOf="@id/acceptFab"
                             card_view:layout_constraintStart_toStartOf="parent" />
@@ -78,7 +78,7 @@
                             android:layout_marginBottom="@dimen/minute_margin"
                             android:layout_marginStart="@dimen/minute_margin"
                             android:text="@{user.name.first+' '+user.name.last}"
-                            android:textColor="@color/white"
+                            android:textColor="@color/teal_200"
                             android:textSize="15sp"
                             android:textStyle="bold"
                             card_view:layout_constraintBottom_toTopOf="@+id/secInfoTV"
